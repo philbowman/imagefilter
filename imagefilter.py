@@ -27,12 +27,35 @@ def main():
     # place a pixel from the original image into the new image
     new_image.putpixel((50, 50), (r, g, b))
 
-
     # Save the image
     new_image.save(IMAGENAME + "_modified." + EXTENSION)
 
     # open the new image
     # new_image.show()
+
+def grayscale(image):
+    width, height = image.size
+    new_image = Image.new("RGB", (width, height), "white")
+    for x in range(width):
+        for y in range(height):
+            r, g, b = image.getpixel((x, y))
+            # avg = int(0.299*r + 0.587*g + 0.114*b)
+            avg = int((r + g + b) / 3)
+            new_image.putpixel((x, y), (avg, avg, avg))
+    return new_image
+
+
+def redgreen_swap(image):
+    width, height = image.size
+    new_image = Image.new("RGB", (width, height), "white")
+    for x in range(width):
+        for y in range(height):
+            r, g, b = image.getpixel((x, y))
+            # avg = int(0.299*r + 0.587*g + 0.114*b)
+            avg = int((r + g + b) / 3)
+            new_image.putpixel((x, y), (g, r, g))
+    return new_image
+
 
 if __name__ == "__main__":
     main()
