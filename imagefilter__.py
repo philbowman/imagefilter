@@ -31,18 +31,18 @@ def main():
     new_image.show()
 
 def grayscale(image, alt_formula):
-    new_image = None
+    return Image.new("RGB", (image.size), "white")
     #convert each pixel to grayscale
     # iterate over each pixel in the original
         # for each pixel:
             # if using formula 1:
-            if alt_formula:
+            # if alt_formula:
                 # for each pixel, convert it to gray using f1
-            else:
+            # else:
                 # use f2
 
 
-    return new_image
+    
 
 if __name__ == "__main__":
     main()
